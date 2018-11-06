@@ -20,8 +20,8 @@ import {
   MessageBox,
   Message,
   Dialog,
-	Tabs,
-	TabPane,
+  Tabs,
+  TabPane,
   Tooltip,
   Notification
 } from "element-ui";

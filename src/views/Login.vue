@@ -27,7 +27,7 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import { userLogin } from "../server/data";
+// import { userLogin } from "../server/data";
 let that;
 export default {
   name: "",
@@ -69,14 +69,19 @@ export default {
   methods: {
     ...mapActions({ setUserLoginInfo: "setUserLoginInfo" }),
     loginClick() {
-      userLogin(this.loginForm.username, this.loginForm.password).then(res => {
-        console.log(res.data);
-        if (res.data[0]) {
-          that.setUserLoginInfo(res.data[0]);
-        }
-        // that.setUserLoginInfo(res.datas);
-       that.$router.push("/GarmentFactoryIndex");
-      });
+      let userInfo = {
+        userID: this.loginForm.username
+      };
+      that.setUserLoginInfo(userInfo);
+      that.$router.push("/GarmentFactoryIndex");
+      // userLogin(this.loginForm.username, this.loginForm.password).then(res => {
+      //   console.log(res.data);
+      //   if (res.data[0]) {
+      //     that.setUserLoginInfo(res.data[0]);
+      //   }
+      //   // that.setUserLoginInfo(res.datas);
+      //   that.$router.push("/GarmentFactoryIndex");
+      // });
     }
   }
 };
